@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gitops-observability-backend-chart.fullname" . }}-env
+  labels:
+      {{- include "gitops-observability-backend-chart.labels" . | nindent 4 }}
+data:
+  LOKI_HOST: {{ .Values.loki.host | quote }}
+  TRACING_HOST: {{ .Values.tracing.host | quote }}
+

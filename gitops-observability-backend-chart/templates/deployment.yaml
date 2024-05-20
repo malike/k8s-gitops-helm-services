@@ -39,14 +39,33 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: "/actuator/health/liveness"
               port: http
           readinessProbe:
             httpGet:
-              path: /
+              path: "/actuator/health/readiness"
               port: http
+          lifecycle:
+            preStop:
+              exec:
+                command: [ "sh", "-c", "sleep 10" ]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "docker"
+          envFrom:
+            - configMapRef:
+                name: {{ include "gitops-observability-backend-chart.fullname" . }}-env
+            - secretRef:
+                name: {{ include "gitops-observability-backend-chart.fullname" . }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+      volumes:
+        - name: config-volume
+          configMap:
+            name:  {{ include "gitops-observability-backend-chart.fullname" . }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
