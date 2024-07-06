@@ -56,9 +56,9 @@ spec:
               value: "docker"
           envFrom:
             - configMapRef:
-                name: {{ include "gitops-observability-backend-chart.fullname" . }}-env
+                name: environment-configmap
             - secretRef:
-                name: {{ include "gitops-observability-backend-chart.fullname" . }}
+                name: environment-secret
           volumeMounts:
             - name: config-volume
               mountPath: /config

@@ -73,14 +73,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-db:
-  host: <patch from vault>
-  username: <patch from vault>
-  password: <patch from vault>
-
-loki:
-  host: http://loki.observability-system:3100/loki/api/v1/push
-
-tracing:
-  host: http://tempo.observability-system:4318/v1/traces

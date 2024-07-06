@@ -1,0 +1,50 @@
+name: Release Chart
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Release Charts
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.8.1
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.6.0
+        with:
+          charts_dir: charts
+          skip_existing: true
+        env:
+          CR_TOKEN: "${{ secrets.GITOPS_TOKEN }}"
+
+      - name: Check out and copy index because of github pages page #https://github.com/isaacs/github/issues/547
+        run: |
+          git fetch origin gh-pages:gh-pages --force
+          git show gh-pages:index.yaml > index.yaml
+          git diff
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+          message: 'Refresh index.yaml'
+          add: 'index.yaml'
