@@ -1,6 +1,6 @@
 apiVersion: v2
 name: gitops-observability-frontend-chart
-description: A Helm chart for GitOps observability frontend
+description: A Helm chart for GitOps Observability Frontend
 
 type: application
 
