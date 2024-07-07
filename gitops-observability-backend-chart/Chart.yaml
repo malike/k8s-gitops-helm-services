@@ -1,9 +1,9 @@
 apiVersion: v2
 name: gitops-observability-backend-chart
-description: A Helm chart for gitops observability backend
+description: A Helm chart for GitOps observability backend
 
 type: application
 
-version: 0.0.2
+version: 0.0.1
 
 appVersion: "1.16.0"
