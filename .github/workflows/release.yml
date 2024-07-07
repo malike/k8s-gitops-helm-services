@@ -35,16 +35,16 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITOPS_TOKEN }}"
 
-      - name: Check out and copy index because of github pages page #https://github.com/isaacs/github/issues/547
-        run: |
-          git fetch origin gh-pages:gh-pages --force
-          git show gh-pages:index.yaml > index.yaml
-          git diff
-
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          committer_name: GitHub Actions
-          committer_email: actions@github.com
-          message: 'Refresh index.yaml'
-          add: 'index.yaml'
+#      - name: Check out and copy index because of github pages page #https://github.com/isaacs/github/issues/547
+#        run: |
+#          git fetch origin gh-pages:gh-pages --force
+#          git show gh-pages:index.yaml > index.yaml
+#          git diff
+#
+#      - name: Commit changes
+#        uses: EndBug/add-and-commit@v9
+#        with:
+#          committer_name: GitHub Actions
+#          committer_email: actions@github.com
+#          message: 'Refresh index.yaml'
+#          add: 'index.yaml'
