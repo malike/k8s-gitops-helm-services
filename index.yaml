@@ -11,15 +11,4 @@ entries:
     urls:
     - https://github.com/malike/k8s-gitops-helm-services/releases/download/gitops-observability-frontend-chart-0.0.1/gitops-observability-frontend-chart-0.0.1.tgz
     version: 0.0.1
-  llm-frontend:
-  - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2024-06-28T17:44:55.850365177Z"
-    description: Helm chart for Kubernetes LLM Frontend.
-    digest: 41eb567fa9fd5191463a800a23ecb9c1b4554038b5312a9ba29502d0741314a1
-    name: llm-frontend
-    type: application
-    urls:
-    - https://github.com/malike/k8s-gitops-llm-service/releases/download/llm-frontend-0.5.0/llm-frontend-0.5.0.tgz
-    version: 0.0.1
 generated: "2024-07-13T01:23:06.754311089Z"
