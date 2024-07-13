@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  gitops-observability-frontend-chart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-07-13T01:23:06.754305198Z"
+    description: A Helm chart for GitOps Observability Frontend
+    digest: a2f8f8a04ffd3d9731252cb5279a0fc24cb5f67ebabeec8b07044f20c0160bcb
+    name: gitops-observability-frontend-chart
+    type: application
+    urls:
+    - https://github.com/malike/k8s-gitops-helm-services/releases/download/gitops-observability-frontend-chart-0.0.1/gitops-observability-frontend-chart-0.0.1.tgz
+    version: 0.0.1
   llm-frontend:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -11,4 +22,4 @@ entries:
     urls:
     - https://github.com/malike/k8s-gitops-llm-service/releases/download/llm-frontend-0.5.0/llm-frontend-0.5.0.tgz
     version: 0.0.1
-generated: "2024-06-28T17:44:55.919596624Z"
+generated: "2024-07-13T01:23:06.754311089Z"
